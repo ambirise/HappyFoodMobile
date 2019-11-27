@@ -5,7 +5,7 @@ export class login extends Component {
     render() {
         return (
             <View>
-                <Text> textInComponent </Text>
+                <Text> This is changed by amit </Text>
             </View>
         )
     }
