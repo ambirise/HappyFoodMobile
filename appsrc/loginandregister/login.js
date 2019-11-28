@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
         borderColor: "#f3e5e566"
 
     }
+
 });
 
 //make this component available to the app

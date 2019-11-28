@@ -4,8 +4,13 @@ import Menu from './Menu';
 import Cart from '../cart/Cart';
 
 const MenuStack = createStackNavigator({
-    Menu:{screen:Menu},
-    Cart:{screen:Cart}
-})
+  Menu: {
+    screen: Menu,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Cart: {screen: Cart},
+});
 
 export default createAppContainer(MenuStack);
