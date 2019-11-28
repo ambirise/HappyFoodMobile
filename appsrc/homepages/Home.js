@@ -2,7 +2,7 @@ import BottomNavigation, {
   ShiftingTab,
 } from 'react-native-material-bottom-navigation';
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MenuStack from './menu/MenuStack';
 
@@ -26,14 +26,14 @@ export default class Home extends React.Component {
       key: 'cart',
       icon: 'cart',
       label: 'Cart',
-      barColor: '#E64A19',
+      barColor: '#494ed6',
       pressColor: 'rgba(255, 255, 255, 0.16)',
     },
     {
       key: 'profile',
       icon: 'account',
       label: 'Profile',
-      barColor: '#494ed6',
+      barColor: '#E64A19',
       pressColor: 'rgba(255, 255, 255, 0.16)',
     },
   ];
@@ -43,7 +43,7 @@ export default class Home extends React.Component {
   };
 
   renderIcon = icon => ({isActive}) => (
-    <Icon size={24} color="white" name={icon} />
+    <Icon size={26} color="white" name={icon} />
   );
 
   renderTab = ({tab, isActive}) => (
