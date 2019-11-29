@@ -1,7 +1,7 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Menu from './Menu';
-import Cart from '../cart/Cart';
+import ItemDetails from '../menu/ItemDetails'
 
 const MenuStack = createStackNavigator({
   Menu: {
@@ -10,7 +10,7 @@ const MenuStack = createStackNavigator({
       header: null,
     },
   },
-  Cart: {screen: Cart},
+  ItemDetails: {screen: ItemDetails},
 });
 
 export default createAppContainer(MenuStack);

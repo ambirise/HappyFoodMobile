@@ -188,7 +188,8 @@ export default class Menu extends React.Component {
                   alignItems: 'center',
                   backgroundColor: 'white',
                   margin: 8,
-                }}>
+                }}
+                onPress={()=>{navigate('ItemDetails')}}>
                 <Image
                   style={{
                     overflow: 'hidden',
@@ -234,13 +235,20 @@ export default class Menu extends React.Component {
             )}
             keyExtractor={item => item}
           />
-          <View style={{position:'absolute', justifyContent:'space-between',flexDirection:'row',width:'100%',padding:8,backgroundColor:'#a2a1a175'}}>
+          <View
+            style={{
+              position: 'absolute',
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+              width: '100%',
+              padding: 8,
+              backgroundColor: '#a2a1a175',
+            }}>
             <TouchableOpacity style={{}}>
               <Icon size={32} color="white" name={'chevron-left'} />
             </TouchableOpacity>
 
-            <TouchableOpacity
-              style={{}}>
+            <TouchableOpacity style={{}}>
               <EvilIcons size={32} color="white" name={'search'} />
             </TouchableOpacity>
           </View>
