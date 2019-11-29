@@ -2,10 +2,13 @@ import BottomNavigation, {
   ShiftingTab,
 } from 'react-native-material-bottom-navigation';
 import React from 'react';
+
 import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MenuStack from './menu/MenuStack';
 import CartStack from './cart/CartStack';
+import MenuStack from './menu/MenuStack'
+import login from '../loginandregister/login'
 
 export default class Home extends React.Component {
   tabs = [
@@ -43,11 +46,12 @@ export default class Home extends React.Component {
     activeTab: 'menu',
   };
 
+
   renderIcon = icon => ({isActive}) => (
     <Icon size={26} color="white" name={icon} />
   );
 
-  renderTab = ({tab, isActive}) => (
+  renderTab = ({ tab, isActive }) => (
     <ShiftingTab
       isActive={isActive}
       key={tab.key}
@@ -60,9 +64,11 @@ export default class Home extends React.Component {
     return (
       <View style={{flex: 1}}>
         {this.state.activeTab == 'menu' ? <MenuStack/> : this.state.activeTab == 'fav' ? <MenuStack/> : this.state.activeTab == 'cart' ? <CartStack/> : <CartStack/>}
+        {/* <login /> */}
+        <MenuStack />
         <BottomNavigation
           activeTab={this.state.activeTab}
-          onTabPress={newTab => this.setState({activeTab: newTab.key})}
+          onTabPress={newTab => this.setState({ activeTab: newTab.key })}
           renderTab={this.renderTab}
           tabs={this.tabs}
         />
