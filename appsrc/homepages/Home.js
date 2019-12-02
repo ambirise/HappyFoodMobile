@@ -7,8 +7,9 @@ import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MenuStack from './menu/MenuStack';
 import CartStack from './cart/CartStack';
-import MenuStack from './menu/MenuStack'
 import login from '../loginandregister/login'
+import ProfileStack from './profile/ProfileStack';
+import FavoriteStack from './favorites/FavoriteStack';
 
 export default class Home extends React.Component {
   tabs = [
@@ -63,9 +64,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        {this.state.activeTab == 'menu' ? <MenuStack/> : this.state.activeTab == 'fav' ? <MenuStack/> : this.state.activeTab == 'cart' ? <CartStack/> : <CartStack/>}
+        {this.state.activeTab == 'menu' ? <MenuStack/> : this.state.activeTab == 'fav' ? <FavoriteStack/> : this.state.activeTab == 'cart' ? <CartStack/> : <ProfileStack/>}
         {/* <login /> */}
-        <MenuStack />
         <BottomNavigation
           activeTab={this.state.activeTab}
           onTabPress={newTab => this.setState({ activeTab: newTab.key })}

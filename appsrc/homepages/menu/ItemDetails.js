@@ -123,6 +123,7 @@ export default class ItemDetails extends Component {
             },
             shadowRadius: 2,
             shadowOpacity: 0.8,
+            elevation:3
           }}>
           <Text style={{color: 'black'}}>Add To Cart</Text>
         </TouchableOpacity>

@@ -19,15 +19,15 @@ import {TextInput} from 'react-native-gesture-handler';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-export default class Cart extends Component {
+export default class Favorite extends Component {
   setValue = value => {
     // do something with value
   };
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" enabled style={{flex: 1}}>
-        <SafeAreaView style={{backgroundColor: '#8284d1', flex: 1}}>
-          <ScrollView style={{backgroundColor: '#8284d1', flex: 1}}>
+        <SafeAreaView style={{backgroundColor: '#B71C1C', flex: 1}}>
+          <ScrollView style={{backgroundColor: '#B71C1C', flex: 1}}>
             <View
               style={{
                 flexDirection: 'row',
@@ -43,12 +43,13 @@ export default class Cart extends Component {
           </TouchableOpacity> */}
               <Text
                 style={{
+                  color: 'white',
                   textAlign: 'center',
                   alignSelf: 'center',
                   fontSize: 18,
                   fontWeight: '600',
                 }}>
-                Your Cart (5)
+                Favorite Items
               </Text>
 
               <Text
@@ -59,14 +60,14 @@ export default class Cart extends Component {
                   fontSize: 18,
                   fontWeight: '600',
                 }}>
-                Total: Rs. 600
+                {/* Total: Rs. 600 */}
               </Text>
             </View>
 
             <View
               style={{
-                backgroundColor: 'white',
-                // height: height - 180,
+                backgroundColor: '#ccb1b1',
+                height: height,
                 borderBottomEndRadius: 25,
                 borderBottomStartRadius: 25,
                 shadowOffset: {height: 2, width: 2},
@@ -76,53 +77,111 @@ export default class Cart extends Component {
                 shadowOpacity: 0.5,
               }}>
               <FlatList
-                data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
-                renderItem={({item}) => (
-                  <View>
-                    <View
-                      style={{
-                        height: 1,
-                        width: '100%',
-                        backgroundColor: 'black',
-                      }}></View>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        margin: 1,
-                        // backgroundColor: '#f9fce6',
-                      }}>
-                      <ImageLoad
-                        style={{width: width / 3.5, height: width / 3.5}}
-                        resizeMode={'contain'}
-                        source={require('../../resources/images/burger.png')}></ImageLoad>
+                data={[
+                  'Chowmein with Coke',
+                  'MoMo with Dew',
+                  'French Fried and Pepsi',
+                  'Tea and Cigarett',
+                  'Milk and Oreo',
+                  'Thukpa with Sprite',
+                ]}
+                renderItem={({item, index}) => (
+                  <View
+                    style={{
+                      alignItems: 'center',
+                      backgroundColor: 'white',
+                      //   flexDirection: 'row',
+                      marginLeft: 8,
+                      marginRight: 8,
+                      marginTop: 8,
+
+                      marginTop: index == 0 ? 8 : 1,
+                      padding: 8,
+                    }}>
+                    <View style={{flexDirection: 'row'}}>
                       <View
                         style={{
-                          paddingLeft: 4,
-                          justifyContent: 'space-evenly',
-                          flexDirection: 'column',
-                          width: width - width / 3,
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}>
-                        <View style={{}}>
-                          <Text style={{fontWeight: '300', fontSize: 18}}>
-                            Chicken Burger
-                          </Text>
-                        </View>
                         <View
-                          style={{alignSelf: 'flex-start', paddingRight: 0}}>
-                          <View style={{width: width / 3}}>
-                            <UIStepper
-                              displayValue={true}
-                              borderRadius={10}
-                              onValueChange={value => {
-                                this.setValue(value);
-                              }}
-                            />
-                          </View>
-                        </View>
-                        <View style={{alignSelf: 'flex-end', paddingRight: 24}}>
-                          <Text>Rs 120</Text>
+                          style={{
+                            alignSelf:'center',
+                            backgroundColor: '#B71C1C',
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: 15,
+                          }}>
+                          <Text style={{color: 'white'}}>{index + 1}</Text>
                         </View>
                       </View>
+                      <View style={{flex: 1, padding: 8}}>
+                        <Text style={{fontSize: 12, fontWeight: '200'}}>
+                          2019/01/23
+                        </Text>
+                        <Text style={{fontSize: 18, fontWeight: '300'}}>
+                          {item}
+                        </Text>
+                      </View>
+                      <View>
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            alignSelf: 'flex-end',
+                            //   backgroundColor: 'red',
+                          }}>
+                          Rs. {Math.round(Math.random(1, 2) * 1000)}
+                        </Text>
+                      </View>
+                    </View>
+                    <View
+                      style={{
+                        justifyContent: 'flex-end',
+                        // backgroundColor: 'red',
+                        width: '100%',
+                        flexDirection: 'row',
+                      }}>
+                      <TouchableOpacity
+                        style={{
+                          backgroundColor: '#ffef08',
+                          padding: 8,
+                          margin: 4,
+                          borderRadius: 15,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          shadowColor: 'black',
+                          shadowOffset: {
+                            width: 2,
+                            height: 2,
+                          },
+                          shadowRadius: 2,
+                          shadowOpacity: 0.8,
+                          elevation: 3,
+                        }}>
+                        <Text style={{color: 'black'}}>Add To Cart</Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity
+                        style={{
+                          backgroundColor: '#494ed6',
+                          padding: 8,
+                          margin: 4,
+                          borderRadius: 15,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          shadowColor: 'black',
+                          shadowOffset: {
+                            width: 2,
+                            height: 2,
+                          },
+                          shadowRadius: 2,
+                          shadowOpacity: 0.8,
+                          elevation: 3,
+                        }}>
+                        <Text style={{color: 'white'}}>Order Now</Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 )}
@@ -130,46 +189,6 @@ export default class Cart extends Component {
               />
             </View>
           </ScrollView>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              // position:'absolute',
-              // bottom:12,
-              backgroundColor: '#8284d1',
-              alignItems: 'center',
-              margin: 4,
-            }}>
-            <TextInput
-              style={{
-                width: '70%',
-                backgroundColor: 'white',
-                height: 42,
-                borderRadius: 12,
-                paddingLeft: 4,
-              }}
-              placeholder={'Remarks..'}></TextInput>
-
-            <TouchableOpacity
-              style={{
-                backgroundColor: '#494ed6',
-                padding: 12,
-                margin: 12,
-                borderRadius: 15,
-                justifyContent: 'center',
-                alignItems: 'center',
-                shadowColor: 'white',
-                shadowOffset: {
-                  width: 2,
-                  height: 2,
-                },
-                shadowRadius: 2,
-                shadowOpacity: 0.8,
-                elevation: 3,
-              }}>
-              <Text style={{color: 'white'}}>Order Now</Text>
-            </TouchableOpacity>
-          </View>
         </SafeAreaView>
       </KeyboardAvoidingView>
     );
